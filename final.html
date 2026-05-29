@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isabelly ❤️</title>
+
+<style>
+/* Configurações Globais e Reset */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+background: linear-gradient(135deg, #050005 0%, #150010 50%, #050005 100%);
+color: #ffffff;
+overflow-x: hidden;
+line-height: 1.6;
+}
+
+section{
+padding:90px 20px;
+max-width: 1400px;
+margin: 0 auto;
+}
+
+/* Hero Section (Abertura) */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+position: relative;
+}
+
+.hero h1{
+font-size: clamp(45px, 8vw, 95px);
+color:#ff7ac8;
+text-shadow: 0 0 20px rgba(255, 77, 166, 0.6), 0 0 40px rgba(255, 77, 166, 0.3);
+margin-bottom:20px;
+letter-spacing: -1px;
+animation: fadeUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero p{
+font-size: clamp(18px, 3vw, 26px);
+max-width:800px;
+color:#ffd8ef;
+font-weight: 300;
+opacity: 0.9;
+animation: fadeIn 2.5s ease forwards;
+}
+
+/* Títulos das Seções */
+.title{
+text-align:center;
+font-size: clamp(32px, 5vw, 55px);
+margin-bottom:50px;
+color:#ff7ac8;
+font-weight: 700;
+position: relative;
+}
+
+.title::after {
+content: '';
+display: block;
+width: 60px;
+height: 3px;
+background: #ff4da6;
+margin: 15px auto 0;
+border-radius: 2px;
+box-shadow: 0 0 10px #ff4da6;
+}
+
+/* SEÇÃO: Texto Longo de Amor Profundo */
+.love-letter {
+max-width: 900px;
+margin: 0 auto;
+background: rgba(255, 255, 255, 0.02);
+border: 1px solid rgba(255, 77, 166, 0.2);
+border-radius: 30px;
+padding: 50px 40px;
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.love-letter p {
+font-size: 20px;
+color: #ffe8f7;
+line-height: 2;
+margin-bottom: 25px;
+text-align: justify;
+}
+
+.love-letter p:last-child {
+margin-bottom: 0;
+}
+
+.love-letter highlight {
+color: #ff7ac8;
+font-weight: 600;
+text-shadow: 0 0 10px rgba(255, 122, 200, 0.3);
+}
+
+/* Grid de Detalhes dela (Os detalhes que eu amo) */
+.details-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+margin-top: 50px;
+}
+
+.detail-card {
+background: rgba(255, 255, 255, 0.01);
+border: 1px dashed rgba(255, 77, 166, 0.3);
+border-radius: 20px;
+padding: 25px;
+transition: all 0.3s ease;
+}
+
+.detail-card:hover {
+background: rgba(255, 77, 166, 0.05);
+border-style: solid;
+transform: scale(1.03);
+}
+
+.detail-card h4 {
+font-size: 22px;
+color: #ff7ac8;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.detail-card p {
+font-size: 16px;
+color: #ffd8ef;
+}
+
+/* Grid de Cards (Design Glassmorphism) */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+gap:30px;
+}
+
+.card{
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid rgba(255, 77, 166, 0.25);
+border-radius:24px;
+padding:35px;
+backdrop-filter:blur(16px);
+-webkit-backdrop-filter:blur(16px);
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.card:hover{
+transform: translateY(-8px);
+border-color: rgba(255, 77, 166, 0.7);
+box-shadow: 0 12px 40px rgba(255, 0, 120, 0.25);
+background: rgba(255, 255, 255, 0.06);
+}
+
+.card h3{
+font-size:26px;
+margin-bottom:15px;
+color:#ff7ac8;
+font-weight: 600;
+}
+
+.card p{
+font-size:18px;
+color:#ffe3f4;
+opacity: 0.95;
+}
+
+/* Galeria de Fotos */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+gap:25px;
+}
+
+.photo{
+background: rgba(255, 255, 255, 0.02);
+border: 1px solid rgba(255, 77, 166, 0.2);
+border-radius:20px;
+overflow:hidden;
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.photo:hover{
+transform: scale(1.03) translateY(-4px);
+border-color: rgba(255, 77, 166, 0.6);
+box-shadow: 0 10px 30px rgba(255, 77, 166, 0.25);
+}
+
+.photo img{
+width:100%;
+height:340px;
+object-fit:cover;
+display: block;
+transition: transform 0.5s ease;
+}
+
+.photo:hover img {
+transform: scale(1.02);
+}
+
+.photo p{
+padding:18px;
+font-size:18px;
+text-align:center;
+color:#ffd8ef;
+font-weight: 500;
+border-top: 1px solid rgba(255, 77, 166, 0.1);
+background: rgba(0, 0, 0, 0.2);
+}
+
+/* Botões Modernos */
+button{
+background: linear-gradient(135deg, #ff4da6 0%, #ff1a8c 100%);
+color:white;
+border:none;
+padding:14px 24px;
+border-radius:16px;
+font-size:18px;
+font-weight: 600;
+cursor:pointer;
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: 0 4px 15px rgba(255, 26, 140, 0.3);
+}
+
+button:hover{
+transform: scale(1.05);
+box-shadow: 0 6px 20px rgba(255, 26, 140, 0.5);
+filter: brightness(1.1);
+}
+
+button:active {
+transform: scale(0.98);
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:20px;
+}
+
+.result{
+margin-top:20px;
+font-size:22px;
+text-align:center;
+font-weight: 600;
+min-height: 33px;
+color: #fff;
+text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* Contadores de Tempo */
+.counter{
+font-size:24px;
+font-weight: bold;
+line-height:1.6;
+background: rgba(0, 0, 0, 0.2);
+padding: 15px;
+border-radius: 12px;
+border-left: 4px solid #ff4da6;
+margin-top: 10px;
+}
+
+/* Jogo da Memória */
+.memoryGame{
+display:grid;
+grid-template-columns:repeat(4, 1fr);
+gap:10px;
+max-width:440px;
+margin:25px auto 0 auto;
+}
+
+.memoryCard{
+height:90px;
+background: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius:16px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:36px;
+cursor:pointer;
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+user-select: none;
+}
+
+.memoryCard:hover:not(.revealed) {
+background: rgba(255, 77, 166, 0.15);
+border-color: rgba(255, 77, 166, 0.4);
+}
+
+.memoryCard.revealed{
+background: linear-gradient(135deg, #ff4da6 0%, #d61a7a 100%);
+border-color: #ff7ac8;
+box-shadow: 0 0 15px rgba(255, 77, 166, 0.4);
+transform: scale(1.02);
+}
+
+/* Campo de Entrada de Senha */
+input{
+width:100%;
+padding:16px;
+border-radius:16px;
+border:1px solid rgba(255, 77, 166, 0.3);
+background: rgba(0, 0, 0, 0.5);
+color:white;
+font-size:18px;
+text-align: center;
+outline: none;
+transition: all 0.3s;
+}
+
+input:focus{
+border-color: #ff4da6;
+box-shadow: 0 0 15px rgba(255, 77, 166, 0.3);
+background: rgba(0, 0, 0, 0.7);
+}
+
+/* Área Secreta */
+.secret{
+max-width:800px;
+margin:auto;
+}
+
+.finalMessage{
+margin-top:45px;
+padding:40px;
+border-radius:24px;
+background: rgba(15, 0, 10, 0.6);
+border: 1px solid #ff4da6;
+box-shadow: 0 0 30px rgba(255, 77, 166, 0.2);
+animation: fadeIn 1s ease;
+}
+
+.look{
+display: block;
+font-size: clamp(36px, 6vw, 55px);
+color:#ff7ac8;
+font-weight:bold;
+text-shadow: 0 0 20px rgba(255,77,166,0.5);
+margin-top: 25px;
+text-align: center;
+}
+
+/* Secção de Áudio/Música */
+.music{
+max-width:600px;
+margin:auto;
+text-align: center;
+}
+
+audio{
+width:100%;
+margin-top:20px;
+border-radius: 30px;
+filter: drop-shadow(0px 4px 12px rgba(255, 77, 166, 0.3));
+}
+
+/* Rodapé */
+footer{
+padding:100px 20px;
+text-align:center;
+border-top: 1px solid rgba(255, 77, 166, 0.1);
+background: rgba(0,0,0,0.4);
+}
+
+footer h1{
+font-size: clamp(32px, 5vw, 65px);
+color:#ff7ac8;
+text-shadow: 0 0 15px rgba(255,77,166,0.3);
+}
+
+/* Elementos de Fundo Ambientais (Estrelas e Corações) */
+.stars{
+position:fixed;
+inset:0;
+z-index:-2;
+overflow:hidden;
+pointer-events: none;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation: blink 2.5s infinite ease-in-out;
+}
+
+.heartsRain{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+overflow: hidden;
+}
+
+.heart{
+position:absolute;
+color: rgba(255, 77, 166, 0.65);
+animation: fall linear forwards;
+text-shadow: 0 0 5px rgba(255,77,166,0.3);
+}
+
+/* Animações Keyframes */
+@keyframes blink{
+0%, 100%{ opacity: 0.1; transform: scale(0.8); }
+50%{ opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fadeUp{
+from{ opacity:0; transform:translateY(40px); }
+to{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeIn{
+from{ opacity: 0; }
+to{ opacity: 1; }
+}
+
+@keyframes fall{
+to{
+transform:translateY(105vh);
+opacity:0;
+}
+}
+
+/* Otimizações Responsivas Mobile */
+@media(max-width:768px){
+section{ padding: 50px 15px; }
+.card { padding: 25px; }
+.memoryGame { max-width: 340px; }
+.memoryCard { height: 75px; font-size: 30px; }
+.love-letter { padding: 30px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Elementos de Atmosfera Visual Dinâmica -->
+<div class="stars" id="stars"></div>
+<div class="heartsRain" id="heartsRain"></div>
+
+<!-- Abertura Principal -->
+<section class="hero">
+<h1>Isabelly ❤️</h1>
+<p>
+Você virou meu universo inteiro. Cada momento ao seu lado virou uma memória eterna dentro de mim.
+</p>
+</section>
+
+<!-- Reprodutor de Música (Texto explicativo removido) -->
+<section class="music">
+<h2 class="title">Nossa música 🎵</h2>
+<audio controls autoplay loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+</section>
+
+<!-- SEÇÃO DECLARAÇÃO: Modificado de 'Isabelly' para 'Amor' -->
+<section>
+<h2 class="title">Por que eu amo você? 💖</h2>
+<div class="love-letter">
+    <p>
+        Amor, criar esse site foi apenas uma das pequenas formas que encontrei de tentar expressar o tamanho do que sinto por você. Às vezes me pego pensando em como o mundo é gigantesco, cheio de caminhos cruzados e escolhas aleatórias, e me sinto o cara mais sortudo do universo por ter feito o caminho exato que me levou até <highlight>você</highlight>. Desde que você entrou na minha vida, tudo ganhou um brilho diferente, mais intenso e absurdamente mais bonito.
+    </p>
+    <p>
+        Eu amo a forma como você transforma meus dias mais simples nas melhores memórias que eu poderia carregar. Amar você não é apenas sobre os momentos perfeitos, mas sobre a paz absurda que sinto só de escutar a sua voz ou de saber que tenho o seu abraço como abrigo. Você se tornou meu pensamento favorito ao acordar e a minha calmaria antes de dormir. Se o destino realmente existe, ele caprichou demais quando escreveu nossas linhas juntos.
+    </p>
+    <p>
+        Quero continuar construindo um futuro inteiro ao seu lado, descobrindo novas razões para me apaixonar por você a cada amanhecer. Obrigado por ser exatamente quem você é, por me deixar fazer parte do seu mundo e por transformar o meu coração no seu lugar favorito. <highlight>Eu te amo infinitamente, cada pedacinho seu.</highlight>
+    </p>
+
+    <!-- Detalhes Lindos Dela -->
+    <div class="details-grid">
+        <div class="detail-card">
+            <h4>✨ O seu olhar</h4>
+            <p>A forma como seus olhos brilham quando você sorri ou me olha fixamente. Eles têm o poder de desarmar qualquer defesa minha em segundos.</p>
+        </div>
+        <div class="detail-card">
+            <h4>🎵 A sua risada</h4>
+            <p>O som mais perfeito que existe. Ouvir você rir, principalmente quando é por alguma bobeira nossa, é a minha definição favorita de felicidade.</p>
+        </div>
+        <div class="detail-card">
+            <h4>🥺 O seu abraço</h4>
+            <p>O meu lugar seguro no mundo inteiro. Quando estou com meus braços ao seu redor, o resto do universo simplesmente desaparece.</p>
+        </div>
+        <div class="detail-card">
+            <h4>🪐 O seu jeito único</h4>
+            <p>A sua personalidade, os seus detalhes fofos, a forma como se importa comigo e como deixa tudo incrivelmente mais leve por onde passa.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Contadores de Tempo Relâmpago -->
+<section>
+<h2 class="title">Nosso tempo ⏳</h2>
+<div class="cards">
+<div class="card">
+<h3>Primeiro beijo 💋</h3>
+<div class="counter" id="beijo"></div>
+</div>
+<div class="card">
+<h3>Nosso namoro 💍</h3>
+<div class="counter" id="namoro"></div>
+</div>
+</div>
+</section>
+
+<!-- Galeria de Momentos (Ajustado para ler as fotos da pasta 'dd/' em formato .jpeg conforme o seu computador) -->
+<section>
+<h2 class="title">Nossos momentos 📸</h2>
+<div class="gallery">
+
+<div class="photo">
+<img src="dd/foto1.jpeg">
+<p>Nossos momentos ❤️</p>
+</div>
+
+<div class="photo"><img src="dd/foto2.jpeg"></div>
+<div class="photo"><img src="dd/foto3.jpeg"></div>
+<div class="photo"><img src="dd/foto4.jpeg"></div>
+<div class="photo"><img src="dd/foto5.jpeg"></div>
+<div class="photo"><img src="dd/foto6.jpeg"></div>
+<div class="photo"><img src="dd/foto7.jpeg"></div>
+<div class="photo"><img src="dd/foto8.jpeg"></div>
+<div class="photo"><img src="dd/foto9.jpeg"></div>
+<div class="photo"><img src="dd/foto10.jpeg"></div>
+<div class="photo"><img src="dd/foto11.jpeg"></div>
+<div class="photo"><img src="dd/foto12.jpeg"></div>
+
+</div>
+</section>
+
+<!-- Bloco de Cartas Declarativas -->
+<section>
+<h2 class="title">Cartinhas intensas 💌</h2>
+<div class="cards">
+<div class="card"><h3>Seu sorriso ✨</h3><p>Seu sorriso virou meu lugar favorito no universo inteiro.</p></div>
+<div class="card"><h3>Meu coração ❤️</h3><p>Você transformou tudo em algo muito mais bonito.</p></div>
+<div class="card"><h3>Nosso futuro 💍</h3><p>Eu quero continuar criando memórias ao seu lado pra sempre.</p></div>
+<div class="card"><h3>Saudade 🌙</h3><p>Tem dias que a saudade aperta tanto que tudo que eu queria era te abraçar.</p></div>
+<div class="card"><h3>Você 🔥</h3><p>Você conseguiu transformar minha vida em algo incrível.</p></div>
+<div class="card"><h3>Pra sempre 💖</h3><p>Eu escolheria você em qualquer vida.</p></div>
+<div class="card"><h3>Seu abraço 🥺</h3><p>Seu abraço virou meu lugar seguro.</p></div>
+<div class="card"><h3>Minha paz 🌌</h3><p>Você virou minha paz em meio ao caos.</p></div>
+<div class="card"><h3>Destino ❤️</h3><p>O universo claramente queria a gente juntos.</p></div>
+<div class="card"><h3>Meu amor 💘</h3><p>Você é meu pensamento favorito todos os dias.</p></div>
+<div class="card"><h3>Infinitamente ✨</h3><p>Meu amor por você nunca vai acabar.</p></div>
+<div class="card"><h3>Nós ❤️</h3><p>Você e eu ainda vamos viver muita coisa juntos.</p></div>
+</div>
+</section>
+
+<!-- Central Interativa de Jogos -->
+<section>
+<h2 class="title">Mini jogos 🎮</h2>
+<div class="cards">
+
+<div class="card">
+<div>
+<h3>Quiz do amor ❤️</h3>
+<p>Quem é o amor da minha vida?</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="right()">Isabelly</button>
+<button onclick="wrong()">Outra pessoa</button>
+</div>
+<div class="result" id="quizResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Mensagem aleatória 💌</h3>
+<p>Clique abaixo para extrair um sentimento surpresa.</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="randomMessage()">Abrir</button>
+</div>
+<div class="result" id="randomResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Compatibilidade 💖</h3>
+<p>Análise de alinhamento de almas.</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="compatibility()">Calcular</button>
+</div>
+<div class="result" id="compatibilityResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Beijo surpresa 💋</h3>
+<p>Envio imediato de carinho virtual.</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="kissGame()">Receber</button>
+</div>
+<div class="result" id="kissResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Nível do amor 💘</h3>
+<p>Medidor de intensidade do nosso sentimento.</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="loveLevel()">Verificar</button>
+</div>
+<div class="result" id="loveLevelResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Destino 🌌</h3>
+<p>O que as estrelas dizem sobre nós dois?</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="destinyGame()">Descobrir</button>
+</div>
+<div class="result" id="destinyResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Botão do carinho ❤️</h3>
+<p>Desbloqueie uma dose maciça de afeto.</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="loveButton()">Clique Aqui</button>
+</div>
+<div class="result" id="loveResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Jogo da memória 🧠</h3>
+<p>Encontre os pares românticos correspondentes.</p>
+</div>
+<div class="memoryGame" id="memoryGame"></div>
+<div class="result" id="memoryResult"></div>
+</div>
+
+<div class="card">
+<div>
+<h3>Mensagem escondida 💖</h3>
+<p>Um segredo guardado em uma caixinha.</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="secretLove()">Abrir</button>
+</div>
+<div class="result" id="secretLoveResult"></div>
+</div>
+</div>
+
+<!-- JOGO DINÂMICO: PEGUE O CORAÇÃO -->
+<div class="card">
+<div>
+<h3>Pegue o Coração 🎯</h3>
+<p>Consiga vencer o contador clicando 5 vezes no coração veloz!</p>
+</div>
+<div id="gameArea" style="position: relative; width: 100%; height: 140px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,77,166,0.15); border-radius: 16px; margin-top: 15px; overflow: hidden;">
+    <span id="targetHeart" onclick="catchHeart()" style="position: absolute; font-size: 32px; cursor: pointer; transition: all 0.15s ease; user-select: none;">❤️</span>
+</div>
+<div class="result" id="catchResult" style="font-size: 20px;">Pontos: 0/5</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Escolha certa 💍</h3>
+<p>Para quem vai todo o meu futuro?</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="futureRight()">Você</button>
+<button onclick="futureWrong()">Outra</button>
+</div>
+<div class="result" id="futureResult"></div>
+</div>
+</div>
+
+<div class="card">
+<div>
+<h3>Amor eterno ✨</h3>
+<p>Qual a validade de tudo o que sentimos?</p>
+</div>
+<div>
+<div class="buttons">
+<button onclick="eternalLove()">Descobrir</button>
+</div>
+<div class="result" id="eternalLoveResult"></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Área da Surpresa Final Protegida por Senha -->
+<section class="secret">
+<h2 class="title">Última surpresa ❤️</h2>
+<div class="card" style="text-align: center;">
+<p style="font-size:22px; margin-bottom:25px;">
+Existe uma última declaração especial guardada a sete chaves... Insira a data do nosso namoro para abrir.
+</p>
+<div style="max-width: 400px; margin: 0 auto 20px auto;">
+    <input id="password" placeholder="Dica: DDMMAAAA (Ex: 12022026)">
+</div>
+<div class="buttons">
+<button onclick="openSecret()">Desbloquear ❤️</button>
+</div>
+<div id="secretContent"></div>
+</div>
+</section>
+
+<!-- Rodapé Final -->
+<footer>
+<h1>Eu te amo infinitamente ❤️</h1>
+</footer>
+
+
+<!-- Scripts Lógicos do Site -->
+<script>
+// Sistema de Atualização Contínua dos Contadores
+function updateCounters(){
+    const now = new Date();
+    const beijoDate = new Date("2026-02-03T22:41:06");
+    const namoroDate = new Date("2026-02-12T22:01:19");
+
+    function calc(date){
+        const diff = now - date;
+        if(diff < 0) return "Contagem regressiva iniciada...";
+        const days = Math.floor(diff/(1000*60*60*24));
+        const hours = Math.floor((diff/(1000*60*60))%24);
+        const minutes = Math.floor((diff/(1000*60))%60);
+        const seconds = Math.floor((diff/1000)%60);
+        return `${days} dias<br>${hours} horas<br>${minutes} minutos<br>${seconds} segundos`;
+    }
+
+    document.getElementById("beijo").innerHTML = calc(beijoDate);
+    document.getElementById("namoro").innerHTML = calc(namoroDate);
+}
+setInterval(updateCounters,1000);
+updateCounters();
+
+// Funções Simples de Feedback Interativo
+function right(){ document.getElementById("quizResult").innerHTML="❤️ ACERTOU PERFEITAMENTE ❤️"; }
+function wrong(){ document.getElementById("quizResult").innerHTML="😡 ERROU! Como assim?! 😡"; }
+
+function randomMessage(){
+    const messages=[
+        "Você é minha pessoa favorita ❤️",
+        "Seu sorriso ilumina meus dias ✨",
+        "Eu amo cada detalhe seu 💖",
+        "Você virou minha paz 🌙",
+        "Eu quero você pra sempre 💍"
+    ];
+    const random=Math.floor(Math.random()*messages.length);
+    document.getElementById("randomResult").innerHTML=messages[random];
+}
+
+function compatibility(){ document.getElementById("compatibilityResult").innerHTML="💖 100000000% (Almas Gêmeas)"; }
+function kissGame(){ document.getElementById("kissResult").innerHTML="💋 Você recebeu um beijo apaixonado virtual!"; }
+function loveLevel(){ document.getElementById("loveLevelResult").innerHTML="💘 Nível de Intensidade: Infinito."; }
+function destinyGame(){ document.getElementById("destinyResult").innerHTML="🌌 O destino escreveu nossas linhas juntos."; }
+function loveButton(){ document.getElementById("loveResult").innerHTML="❤️ Carga máxima de amor liberada!"; }
+function secretLove(){ document.getElementById("secretLoveResult").innerHTML="💖 Você é, e sempre será, meu lugar favorito."; }
+function futureRight(){ document.getElementById("futureResult").innerHTML="💍 Sempre você, em todas as realidades."; }
+function futureWrong(){ document.getElementById("futureResult").innerHTML="😭 Resposta incorreta. Tente novamente."; }
+function eternalLove(){ document.getElementById("eternalLoveResult").innerHTML="✨ Nosso amor desafia a linha do tempo."; }
+
+// Sistema Desbloqueador com Validação de Senha Especial (Data de namoro como combinado)
+function openSecret(){
+    const password = document.getElementById("password").value.trim();
+    if(password === "12022026" || password === "amor"){
+        document.getElementById("secretContent").innerHTML = `
+        <div class="finalMessage">
+            <p style="font-size:24px; line-height:2; color:#ffe4f5; text-align: left;">
+            Desde que você entrou na minha vida, tudo ficou mais bonito.<br><br>
+            Você transformou meus dias, meus pensamentos, meus sentimentos...<br><br>
+            Cada abraço seu ficou marcado em mim de um jeito único.<br><br>
+            Eu escolheria você de olhos fechados em qualquer universo ou linha do tempo.<br><br>
+            <span class="look">Olha pra mim ❤️</span>
+            </p>
+        </div>`;
+        document.getElementById("secretContent").scrollIntoView({ behavior: 'smooth' });
+    } else {
+        alert("Senha incorreta ❤️ Tente colocar a data especial!");
+    }
+}
+
+// Disparo por Tecla Enter no Campo de Texto
+document.getElementById("password").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        openSecret();
+    }
+});
+
+// Mecânica Interativa: JOGO PEGUE O CORAÇÃO
+let heartPoints = 0;
+let gameRunning = true;
+
+function moveHeart() {
+    if (!gameRunning) return;
+    const heart = document.getElementById("targetHeart");
+    const area = document.getElementById("gameArea");
+    
+    const maxX = area.clientWidth - 45;
+    const maxY = area.clientHeight - 45;
+    
+    const randomX = Math.floor(Math.random() * Math.max(maxX, 10));
+    const randomY = Math.floor(Math.random() * Math.max(maxY, 10));
+    
+    heart.style.left = randomX + "px";
+    heart.style.top = randomY + "px";
+}
+setInterval(moveHeart, 750); 
+
+function catchHeart() {
+    if (!gameRunning) return;
+    
+    heartPoints++;
+    document.getElementById("catchResult").innerHTML = `Pontos: ${heartPoints}/5`;
+    
+    if (heartPoints >= 5) {
+        gameRunning = false;
+        document.getElementById("targetHeart").style.display = "none";
+        document.getElementById("catchResult").innerHTML = "🎉 Você capturou meu coração inteirinho! Te amo! ❤️";
+    } else {
+        moveHeart();
+    }
+}
+
+// Geração de Estrelas Ambientais Aleatórias no Fundo
+const starsContainer = document.getElementById("stars");
+for(let i=0; i<150; i++){
+    const star=document.createElement("div");
+    star.classList.add("star");
+    const size=Math.random()*3 + 1;
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDelay=Math.random()*2+"s";
+    starsContainer.appendChild(star);
+}
+
+// Sistema de Chuva Constante de Corações Românticos
+setInterval(()=>{
+    const heartRainContainer = document.getElementById("heartsRain");
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"%";
+    heart.style.fontSize=(Math.random()*15+18)+"px";
+    heart.style.animationDuration=(Math.random()*3+4)+"s";
+    heartRainContainer.appendChild(heart);
+    setTimeout(()=>{ heart.remove(); }, 6000);
+}, 350);
+
+// JOGO DA MEMÓRIA REVISADO (Grid de 16 itens perfeitamente balanceado)
+const emojis=["❤️","❤️","💋","💋","🌹","🌹","💍","💍","✨","✨","💖","💖","🥰","🥰","🌌","🌌"];
+emojis.sort(()=>0.5-Math.random());
+
+const memoryGame=document.getElementById("memoryGame");
+let firstCard=null;
+let secondCard=null;
+let lockBoard=false;
+let matches=0;
+
+emojis.forEach(emoji=>{
+    const card=document.createElement("div");
+    card.classList.add("memoryCard");
+    card.dataset.emoji=emoji;
+    card.innerHTML="?";
+
+    card.addEventListener("click",()=>{
+        if(lockBoard) return;
+        if(card.classList.contains("revealed")) return;
+        if(card === firstCard) return; 
+
+        card.classList.add("revealed");
+        card.innerHTML=emoji;
+
+        if(!firstCard){
+            firstCard=card;
+        } else {
+            secondCard=card;
+            lockBoard=true;
+
+            if(firstCard.dataset.emoji === secondCard.dataset.emoji){
+                matches++;
+                firstCard=null;
+                secondCard=null;
+                lockBoard=false;
+
+                if(matches === 8){
+                    document.getElementById("memoryResult").innerHTML="🎉 Vitória! Nosso encaixe é perfeito! ❤️";
+                }
+            }else{
+                setTimeout(()=>{
+                    firstCard.classList.remove("revealed");
+                    secondCard.classList.remove("revealed");
+                    firstCard.innerHTML="?";
+                    secondCard.innerHTML="?";
+                    firstCard=null;
+                    secondCard=null;
+                    lockBoard=false;
+                }, 900);
+            }
+        }
+    });
+    memoryGame.appendChild(card);
+});
+</script>
+
+</body>
+</html>
